@@ -22,24 +22,24 @@ const signIn = (success, failure, data) => {
 };
 
 const signOut = (success, failure) => {
-  console.log(app);
+  console.log(app.user);
   $.ajax({
     method: 'DELETE',
-    url: app.api + 'sign-out/' + app.user1.id,
+    url: app.api + 'sign-out/' + app.user._id,
     headers: {
-      Authorization: 'Token token=' + app.user1.token,
+      Authorization: 'Token token=' + app.user.token,
     },
   }).done(success)
   .fail(failure);
 };
 
 const changePassword = (success, failure, data) => {
-  console.log(app.user1.authToken);
+  console.log(app.user.authToken);
   $.ajax({
     method: 'PATCH',
-    url : app.api + 'change-password/' + app.user1.id,
+    url : app.api + 'change-password/' + app.user._id,
     headers: {
-      Authorization: 'Token token=' + app.user1.authToken,
+      Authorization: 'Token token=' + app.user.authToken,
     },
     data
   }).done(success)

@@ -38,11 +38,12 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <ul class="nav navbar-nav">
-          <li><button class="btn btn-primary show" data-toggle="modal" data-target=".register">
+          <li><button class="btn btn-primary unauth show" data-toggle="modal" data-target="#register">
             Register</button></li>
-          <li><button class="btn btn-primary show">Sign In</button></li>
-          <li><button class="btn btn-primary hide">Change Password</button></li>
-          <li><button class="btn btn-primary hide">Sign out</button></li>
+          <li><button class="btn btn-primary unauth show" data-toggle="modal" data-target="#login">
+            Log in</button></li>
+          <li><button class="btn btn-primary auth hide" data-toggle="modal" data-target="#changePassword">Change Password</button></li>
+          <li><button class="btn btn-primary auth hide" id="signout">Sign out</button></li>
         </ul>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -50,7 +51,8 @@
 </nav>
 
 <!-- auth modals -->
-  <div class="modal fade register" id="register">
+<!--  register  -->
+  <div class="modal fade" id="register">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -69,6 +71,59 @@
             <br>
             <label>Confirm Password</label>
             <input class="form-control" type="password"  name="credentials[password_confirmation]">
+            <br>
+            <button class="btn btn-primary" value="Submit">Submit</button>
+            <button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  sign in   -->
+
+  <div class="modal fade register" id="login">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4>Log in</h4>
+        </div>
+        <div class="modal-body">
+          <form id="signin">
+            <label>Email</label>
+            <input class="form-control" type="email"  name="credentials[email]">
+            <br>
+            <label>Password</label>
+            <input class="form-control" type="password"  name="credentials[password]">
+            <br>
+            <button class="btn btn-primary" value="Submit">Submit</button>
+            <button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  change password -->
+  <div class="modal fade" id="changePassword">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4>Register</h4>
+        </div>
+        <div class="modal-body">
+          <form id="changepw">
+            <label>Old Password</label>
+            <input class="form-control" type="password"  name="passwords[old]">
+            <br>
+            <labe>New Password</label>
+            <input class="form-control" type="password"  name="passwords[new]">
             <br>
             <button class="btn btn-primary" value="Submit">Submit</button>
             <button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
