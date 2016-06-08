@@ -2,22 +2,21 @@
 
 const app = require('./app-data');
 const ui = require('./auth/ui');
-// const search = require('./search');
 
-// const loadBeers = (category, query) => {
-//   $.ajax({
-//     method: 'GET',
-//     url: app.api + 'beers'
-//   })
-//   .done(function (data) {
-//     console.log(data);
-//     // let beersTemplate = require('./templates/beers.handlebars');
-//     app.beers = data.beers;
-//     // return data;
-//     search.searchBeers(category, query, data);
-//     // $('#beers').append(beersTemplate({beers:data.beers}));
-//   }).fail(ui.failure);
-// };
+const searchBeers = (category, query, data) =>{
+  // console.log(category + " " + query + " " + data);
+  let results = [];
+  let param = category.str();
+  // console.log(data.length + 'WTF');
+  for(let i = 0; i < data.length; i++){
+    // .category.toLowerCase().indexOf(query) >= 0
+    let params = this.param;
+    if (data[i]){
+      console.log(data[i].param);
+      results.push(data[i]);
+    }
+  }console.log(results);
+};
 
 const load = (category, query) => {
   console.log(category);
@@ -26,9 +25,13 @@ const load = (category, query) => {
     method: 'GET',
     url: app.api + 'beers',
   }).done(function(data) {
-    console.log(category);
-    console.log(query);
-    console.log(data);
+    let beers = data.beers;
+    console.log(beers);
+    // console.log(data.length + ' on load');
+    searchBeers(category, query, beers);
+    // console.log(category);
+    // console.log(query);
+    // console.log(data);
   })
   .fail(ui.failure);
 };
