@@ -1,7 +1,9 @@
-@font-face {
-  font-family: 'Portico';
-  src: local('PorticoRough.otf') format('opentype');
-}
+// @font-face {
+//   font-family: 'Portico';
+//   src: local('PorticoRough.otf') format('opentype');
+// }
+
+@import url(https://fonts.googleapis.com/css?family=Londrina+Sketch);
 
 .jumbotron {
   background-size: cover;
@@ -12,9 +14,9 @@
     .title {
       width:100%;
       text-align: center;
-      font-size: 40px;
+      font-size: 100px;
       color: $white;
-      font-family: 'Portico';
+      font-family: 'Londrina Sketch', cursive;
 
       h1 {
         font-size: 75px;
@@ -54,11 +56,14 @@
   display: flex;
   width: 80%;
   margin: 200px auto 0 auto;
-  border: 1px solid black;
+  // border: 1px solid black;
+  font-size: 36px;
+  color: $ipa;
 
     li {
+      margin-top: 1em;
       height: 200px;
-      border: 1px solid black;
+      list-style: none;
 
       img {
         height: 100%;
@@ -77,5 +82,6 @@
   .left {
     width: 50%;
     float: left;
+    padding-top: 1em;
   }
 }

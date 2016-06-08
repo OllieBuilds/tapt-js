@@ -22,11 +22,12 @@ const searchBeers = (beers) =>{
       results.push(beers[i]);
       }
   }
-    console.log(results);
+    // console.log(results);
     let beersTemplate = require('./templates/beers.handlebars');
     let labelsTemplate = require('./templates/labels.handlebars');
     $('#beers').append(beersTemplate({beers:results}));
     $('#labels').append(labelsTemplate({labels:urls}));
+      //  $("li:even").css("background-color", "#666");
 };
 
 const load = () => {
