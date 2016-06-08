@@ -11,4 +11,4 @@ curl --request GET http://api.brewerydb.com/v2/breweries?key=1e4230aee7ebf8eb425
 curl --request GET http://api.brewerydb.com/v2/locations?key=1e4230aee7ebf8eb42550ddfdcae3e1e |jsonlint
 
 # pages
-curl --request GET http://api.brewerydb.com/v2/beers?key=1e4230aee7ebf8eb42550ddfdcae3e1e |jsonlint
+curl --request GET 'http://api.brewerydb.com/v2/beers?key=1e4230aee7ebf8eb42550ddfdcae3e1e&p=2' |jsonlint
