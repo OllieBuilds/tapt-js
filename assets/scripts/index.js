@@ -6,7 +6,10 @@
 // use require without a reference to ensure a file is bundle
 
 const authEvents = require('./auth/events');
+const search = require('./search');
+// const breweries = require('./breweries');
 // const api = require('./auth/ajax');
 $(() => {
   authEvents.addHandlers();
+  search.search();
 });
