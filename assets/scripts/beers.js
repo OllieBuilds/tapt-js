@@ -3,32 +3,42 @@
 const app = require('./app-data');
 const ui = require('./auth/ui');
 
-const searchBeers = (category, query, data) =>{
-  // console.log(category + " " + query + " " + data);
+
+const searchBeers = (beers) =>{
+  // console.log(beers[0].name);
   let results = [];
-  let param = category.str();
-  // console.log(data.length + 'WTF');
-  for(let i = 0; i < data.length; i++){
-    // .category.toLowerCase().indexOf(query) >= 0
-    let params = this.param;
-    if (data[i]){
-      console.log(data[i].param);
-      results.push(data[i]);
+  // let param;
+  // $("option:selected").each(function() {
+  //   let tmp = $( this ).text() + " ";
+  //   param = tmp.toLowerCase();
+  //     });
+      for(let i = 0; i < beers.length; i++){
+        // console.log(beers[i].name);
+        if (beers[i].name) {
+        //   console.log(beers[i].param);
+          results.push(beers[i].name);
+        }
+      }
+
+  // console.log(results);
+  for(let i = 0; i < results.length; i++) {
+    if(results[i].indexOf($('input:text').val()) >= 0) {
+      console.log(results[i]);
     }
-  }console.log(results);
+  }
 };
 
-const load = (category, query) => {
-  console.log(category);
-  console.log(query);
+const load = () => {
+  // console.log(category);
+  // console.log(query);
   $.ajax({
     method: 'GET',
     url: app.api + 'beers',
   }).done(function(data) {
     let beers = data.beers;
-    console.log(beers);
+    // console.log(beers);
     // console.log(data.length + ' on load');
-    searchBeers(category, query, beers);
+    searchBeers(beers);
     // console.log(category);
     // console.log(query);
     // console.log(data);

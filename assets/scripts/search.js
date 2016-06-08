@@ -1,5 +1,5 @@
 'use strict';
-// const app = require('./app-data');
+const app = require('./app-data');
 const beer = require('./beers');
 
 const search = () => {
@@ -10,10 +10,10 @@ const search = () => {
     $("option:selected").each(function() {
       let tmp = $( this ).text() + " ";
       param = tmp.toLowerCase();
-      // app.param = param;
-      // app.query = inputVal;
+      app.param = param;
+      app.query = inputVal;
     });
-    beer.load(param, inputVal);
+    beer.load();
   });
 
 
