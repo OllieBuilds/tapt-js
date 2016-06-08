@@ -5,6 +5,17 @@
 
 @import url(https://fonts.googleapis.com/css?family=Londrina+Sketch);
 
+body {
+  background-color: $grey;
+}
+
+.content {
+  width: 95%;
+  margin: -10px auto;
+  border-radius: 5px;
+  background-color: $white;
+}
+
 .jumbotron {
   background-size: cover;
   background-position: top;
