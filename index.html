@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Tapt</title>
+      <title>On Tap</title>
       <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
@@ -45,22 +45,22 @@
 </nav>
 <form class="navbar-form navbar-left" role="search" id="search">
   <div class="form-group">
-    <label>Search by:</label>
-    <select class="form-control">
-      <option id="name" value="name">Name</option>
-      <option value="brewery">Brewery</option>
-      <option value="type">Type</option>
-    </select>
-  </div>
-  <br>
-  <div class="form-group">
+    <label>Search:</label>
     <input type="text" id="query" class="form-control" placeholder="Search Beers">
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
-<div>
-  <ul id="beers">
-  </ul>
+  <!-- Handlebars -->
+<div class="parent">
+<!-- seperate divs, 50% each define height -->
+  <div class="left">
+    <ul id="beers" class="table">
+    </ul>
+  </div>
+  <div class="right">
+    <ul id="labels" class="table">
+    </ul>
+  </div>
 </div>
 
 <!-- auth modals -->

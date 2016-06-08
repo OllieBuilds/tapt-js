@@ -5,43 +5,37 @@ const ui = require('./auth/ui');
 
 
 const searchBeers = (beers) =>{
-  // console.log(beers[0].name);
   let results = [];
-  // let param;
-  // $("option:selected").each(function() {
-  //   let tmp = $( this ).text() + " ";
-  //   param = tmp.toLowerCase();
-  //     });
-      for(let i = 0; i < beers.length; i++){
-        // console.log(beers[i].name);
-        if (beers[i].name) {
-        //   console.log(beers[i].param);
-          results.push(beers[i].name);
-        }
+  let urls =[];
+  // // let renderResults = [];
+  //     for(let i = 0; i < beers.length; i++){
+  //         if(beers[i].name !== ""){results.push(beers[i]);}
+  //     }
+  // console.log(beers[134]);
+  // debugger;
+  for(let i = 0; i < beers.length-100; i++) {
+    if(beers[i].name.toString().indexOf($('input:text').val()) >= 0)
+      {
+      let url = beers[i]['labels/medium'].toString();
+      if(url){
+      urls.push(url);}else{urls.push('null');}
+      results.push(beers[i]);
       }
-
-  // console.log(results);
-  for(let i = 0; i < results.length; i++) {
-    if(results[i].indexOf($('input:text').val()) >= 0) {
-      console.log(results[i]);
-    }
   }
+    console.log(results);
+    let beersTemplate = require('./templates/beers.handlebars');
+    let labelsTemplate = require('./templates/labels.handlebars');
+    $('#beers').append(beersTemplate({beers:results}));
+    $('#labels').append(labelsTemplate({labels:urls}));
 };
 
 const load = () => {
-  // console.log(category);
-  // console.log(query);
   $.ajax({
     method: 'GET',
     url: app.api + 'beers',
   }).done(function(data) {
     let beers = data.beers;
-    // console.log(beers);
-    // console.log(data.length + ' on load');
     searchBeers(beers);
-    // console.log(category);
-    // console.log(query);
-    // console.log(data);
   })
   .fail(ui.failure);
 };

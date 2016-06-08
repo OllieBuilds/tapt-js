@@ -2,7 +2,6 @@
 const getFormFields = require('../../../lib/get-form-fields');
 const authApi = require('./ajax');
 const authUi = require('./ui');
-const search = require('../beers');
 
 const addHandlers = () => {
   // Authentication ations
@@ -34,14 +33,8 @@ const addHandlers = () => {
     authApi.changePassword(authUi.success, authUi.failure, data);
   });
 
-  // $('#search').on('click', function(event) {
-  //   event.preventDefault();
-  //   search.loadBeers();
-  // });
-
 };
 
 module.exports = {
   addHandlers,
-  // search,
 };

@@ -49,3 +49,33 @@
   visibility: visible;
   opacity: 1;
 }
+
+.parent {
+  display: flex;
+  width: 80%;
+  margin: 200px auto 0 auto;
+  border: 1px solid black;
+
+    li {
+      height: 200px;
+      border: 1px solid black;
+
+      img {
+        height: 100%;
+        max-width: auto;
+      }
+    }
+    div {
+      display: inline;
+    }
+
+  .right {
+    width: 50%;
+    float: right;
+  }
+
+  .left {
+    width: 50%;
+    float: left;
+  }
+}
