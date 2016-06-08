@@ -11,6 +11,7 @@ const loadBeers = () => {
   .done(function (data) {
     console.log(data);
     let beersTemplate = require('./templates/beers.handlebars');
+    app.beers = data.beers;
     $('#beers').append(beersTemplate({beers:data.beers}));
   }).fail(ui.failure);
 };

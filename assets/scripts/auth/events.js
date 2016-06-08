@@ -34,14 +34,14 @@ const addHandlers = () => {
     authApi.changePassword(authUi.success, authUi.failure, data);
   });
 
-  $('#search').on('click', function(event) {
-    event.preventDefault();
-    search.loadBeers();
-  });
+  // $('#search').on('click', function(event) {
+  //   event.preventDefault();
+  //   search.loadBeers();
+  // });
 
 };
 
 module.exports = {
   addHandlers,
-  search,
+  // search,
 };
