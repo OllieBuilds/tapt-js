@@ -14,8 +14,10 @@ const signInSuccess = (data) => {
   console.log(app.user);
   console.log(data);
   console.log('signed in');
+  $('#login').modal('hide');
   $('.auth').addClass('show').removeClass('hide');
   $('.unauth').removeClass('show').addClass('hide');
+  $('#tasted').modal('show');
 };
 
 module.exports = {

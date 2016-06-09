@@ -7,9 +7,11 @@
 
 const authEvents = require('./auth/events');
 const search = require('./search');
+const tasted = require('./tasted');
 // const breweries = require('./breweries');
 // const api = require('./auth/ajax');
 $(() => {
   authEvents.addHandlers();
   search.search();
+  tasted.addHandlers();
 });

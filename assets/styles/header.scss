@@ -6,12 +6,19 @@
 @import url(https://fonts.googleapis.com/css?family=Londrina+Sketch);
 
 body {
-  background-color: $grey;
+  // background: $ipa; /* Old browsers */
+  min-height: 1500px;
+  background: -moz-linear-gradient(top, #efc51a 0%, #7a5737 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #efc51a 0%,#7a5737 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #efc51a 0%,#7a5737 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
 }
 
 .content {
   width: 95%;
-  margin: -10px auto;
+  margin: -10px auto 10px auto;
   border-radius: 5px;
   background-color: $white;
 }

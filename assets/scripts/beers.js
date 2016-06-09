@@ -7,12 +7,7 @@ const ui = require('./auth/ui');
 const searchBeers = (beers) =>{
   let results = [];
   let urls =[];
-  // // let renderResults = [];
-  //     for(let i = 0; i < beers.length; i++){
-  //         if(beers[i].name !== ""){results.push(beers[i]);}
-  //     }
-  // console.log(beers[134]);
-  // debugger;
+
   for(let i = 0; i < beers.length-100; i++) {
     if(beers[i].name.toString().indexOf($('input:text').val()) >= 0)
       {
@@ -20,14 +15,19 @@ const searchBeers = (beers) =>{
       if(url){
       urls.push(url);}else{urls.push('null');}
       results.push(beers[i]);
-      }
+    }
   }
-    // console.log(results);
+    if(results.length === 0) {
+       $('#no-results').modal('show');
+        console.log('no results');}
     let beersTemplate = require('./templates/beers.handlebars');
     let labelsTemplate = require('./templates/labels.handlebars');
     $('#beers').append(beersTemplate({beers:results}));
     $('#labels').append(labelsTemplate({labels:urls}));
-      //  $("li:even").css("background-color", "#666");
+    $('.add').on('click', function(event) {
+      event.preventDefault();
+      console.log($(this).val());
+    });
 };
 
 const load = () => {
