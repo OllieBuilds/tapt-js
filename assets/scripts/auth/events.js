@@ -40,7 +40,6 @@ const addHandlers = () => {
     event.preventDefault();
     tasted.showTasted(authUi.tastedSuccess, authUi.failure);
   });
-
 };
 
 module.exports = {

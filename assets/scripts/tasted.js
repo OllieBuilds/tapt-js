@@ -5,25 +5,18 @@ const authUi = require('./auth/ui');
 
 
 const removeTasted = (success, failure, data) => {
+  console.log(data);
   $.ajax({
     method: 'DELETE',
-    url: app.api + 'tasted',
+    url: app.api + 'tasted/'+ data,
     headers:{
         Authorization: 'Token token=' + app.user.token,
     },
-    data:{
-      'id': data,
+    data: {
+      name: data,
     },
   }).done(success)
   .fail(failure);
-};
-
-const addBeers = (beer) => {
-  let beers = beer;
-  let tastedTemplate = require('./templates/tasted.handlebars');
-  $('#tasted-beers').append(tastedTemplate({beers:beers}));
-  // $('#tasted').modal('show');
-  // $('#tasted-beers').append(tastedTemplate({beers:beers}));
 };
 
 const sort = (arr) => {
@@ -39,7 +32,13 @@ const sort = (arr) => {
   }
   let tastedTemplate = require('./templates/tasted.handlebars');
   $('#tasted-beers').append(tastedTemplate({beer:beer}));
-
+  $('.rmBeer').on('click', function(event) {
+    event.preventDefault();
+    console.log('clicked');
+    let data = $('.rmBeer').attr('value').toString();
+    console.log(data);
+    removeTasted(authUi.success, authUi.failure, data);
+  });
 };
 
 const handleBeers = () => {
