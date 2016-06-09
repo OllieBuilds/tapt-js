@@ -2,6 +2,7 @@
 const getFormFields = require('../../../lib/get-form-fields');
 const authApi = require('./ajax');
 const authUi = require('./ui');
+const tasted = require('../tasted');
 
 const addHandlers = () => {
   // Authentication ations
@@ -31,6 +32,11 @@ const addHandlers = () => {
     let data = getFormFields(this);
     console.log('pw change');
     authApi.changePassword(authUi.success, authUi.failure, data);
+  });
+
+  $('#see-tasted').on('click', function (event) {
+    event.preventDefault();
+    tasted.showTasted(authUi.tastedSuccess, authUi.failure);
   });
 
 };

@@ -2,6 +2,7 @@
 
 const app = require('./app-data');
 const ui = require('./auth/ui');
+const tasted = require('./tasted');
 
 
 const searchBeers = (beers) =>{
@@ -26,7 +27,11 @@ const searchBeers = (beers) =>{
     $('#labels').append(labelsTemplate({labels:urls}));
     $('.add').on('click', function(event) {
       event.preventDefault();
-      console.log($(this).val());
+      // console.log($(this).attr('value'));
+      let data = $(this).attr('value').toString();
+      console.log(data);
+      // debugger;
+      tasted.addTasted(ui.success, ui.failure, data);
     });
 };
 

@@ -5,6 +5,10 @@ const success = (data) => {
   console.log('success' + data);
 };
 
+const failure = (error) => {
+  console.log(error);
+};
+
 const signInSuccess = (data) => {
   console.log(data);
   app.user = data.user;
@@ -23,4 +27,5 @@ const signInSuccess = (data) => {
 module.exports = {
   success,
   signInSuccess,
+  failure,
 };
