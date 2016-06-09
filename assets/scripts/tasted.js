@@ -18,65 +18,51 @@ const removeTasted = (success, failure, data) => {
   .fail(failure);
 };
 
-// appends tasted handlebars
-// const displayTasted = (data) => {
-//   // extract label urls
-//   let urls =[];
-//   console.log(data);
-//   // debugger;
-//   for(let i = 0; i < data.length; i++) {
-//     let url = data[i]['labels/medium'].toString();
-//     if(url){
-//     urls.push(url);}else{urls.push('null');}
-//   }
-//
-//   let tastedTemplate = require('./templates/tasted.handlebars');
-//   let tastedLabelsTemplate = require('./templates/tastedLabels.handlebars');
-//   $('#tasted-beers').append(tastedTemplate({beers:data.beer}));
-//   $('#tasted-labels').append(tastedLabelsTemplate({labels:urls}));
-//   $('.rmBeer').on('click', function(event) {
-//     event.preventDefault();
-//     let data = $(this).attr('value').toString();
-//     removeTasted(authUi.success, authUi.failure, data);
-//   });
-// };
+const addBeers = (beer) => {
+  let beers = beer;
+  let tastedTemplate = require('./templates/tasted.handlebars');
+  $('#tasted-beers').append(tastedTemplate({beers:beers}));
+  // $('#tasted').modal('show');
+  // $('#tasted-beers').append(tastedTemplate({beers:beers}));
+};
 
-const displayTasted = (id) =>{
+const sort = (arr) => {
+  let beer = [];
+  let tmp;
+  for(let i =0; i < app.user.beer.length; i++) {
+    tmp = arr.beers[i].name;
+    if(app.user.beer.indexOf(tmp) < 0)
+    {
+      console.log('uno');
+      beer.push(arr.beers[i]);
+    }
+  }
+  let tastedTemplate = require('./templates/tasted.handlebars');
+  $('#tasted-beers').append(tastedTemplate({beer:beer}));
+
+};
+
+const handleBeers = () => {
   $.ajax({
     method: 'GET',
-    url: app.api + 'beers',
-    dataType: 'json',
-    data: {
-      'id': id
-    },
-    headers: {
-      Authorization: 'Token token=' + app.user.token,
-    }
-  }).done(authUi.success)
+    url: app.api + 'beers'
+  }).done((data)=>sort(data))
   .fail(authUi.failure);
 };
 
-
-
-const showTasted = (success, failure) => {
-  $.ajax({
-    method: 'GET',
-    url: app.api + 'tasted',
-    dataType: 'json',
-    headers: {
-      Authorization: 'Token token=' + app.user.token,
+const showTasted = () => {
+  let display =[];
+  for(let i =0; i < app.user.beer.length; i++){
+    if(display.indexOf(app.user.beer[i]) >= 0) {
+      console.log('already tasted');
+    }else{
+      display.push(app.user.beer[i]);
     }
-  }).done(function(data) {
-    console.log(data.beer + 'shows');
-    let beers = data;
-    // displayTasted(beers);
-  })
-  .fail(failure);
+  }
+  handleBeers(display);
 };
 
 const addTasted = (success, failure, data) => {
-  console.log(data);
-  debugger;
   $.ajax({
     method: 'POST',
     url: app.api + 'tasted',
@@ -85,9 +71,9 @@ const addTasted = (success, failure, data) => {
     },
     dataProcessing: false,
     data:{
-      'id': data,
+      'name': data,
     },
-  }).done(function(data){console.log(data);})
+  }).done(function(data){console.log(data + "tasted .done");})
   .fail(failure);
 };
 

@@ -37,7 +37,7 @@
             Register</button></li>
           <li><button class="btn btn-primary unauth show" data-toggle="modal" data-target="#login">
             Log in</button></li>
-          <li><button class="btn btn-primary auth hide" id="see-tasted" data-toggle="modal" data-target="#tasted">Tasted List</button></li>
+          <li><button class="btn btn-primary auth hide" id="see-tasted">Tasted List</button></li>
           <li><button class="btn btn-primary auth hide" data-toggle="modal" data-target="#changePassword">Change Password</button></li>
           <li><button class="btn btn-primary auth hide" id="signout">Sign out</button></li>
         </ul>
@@ -45,6 +45,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
 <form class="navbar-form navbar-left" role="search" id="search">
   <div class="form-group">
     <label>Search:</label>
@@ -64,7 +65,10 @@
     </ul>
   </div>
 </div>
-
+<div>
+  <ul id="tasted-beers">
+  </ul>
+</div>
 <!-- auth modals -->
 <!--  register  -->
   <div class="modal fade" id="register">
@@ -164,8 +168,9 @@
         </div>
       </div>
     </div>
+
     <!-- User's Beers -->
-    <div class="modal fade" id="tasted">
+    <!-- <div class="modal fade" id="tasted">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -176,9 +181,9 @@
           <div class="modal-body">
             <h4>Beers You've Tasted</h4>
             <!--Tasted Beers Handlebars -->
-          <div class="parent">
+          <!-- <div class="parent"> -->
           <!-- seperate divs, 50% each define height -->
-            <div class="left">
+            <!-- <div class="left">
               <ul id="tasted-beers" class="table">
               </ul>
             </div>
@@ -191,7 +196,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   <!--  end content -->
 </div>
     </body>
