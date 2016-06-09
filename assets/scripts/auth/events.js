@@ -25,6 +25,8 @@ const addHandlers = () => {
     event.preventDefault();
     console.log('sign-out');
     authApi.signOut(authUi.success, authUi.failure);
+    $('.auth').addClass('hide').removeClass('show');
+    $('.unauth').removeClass('hide').addClass('show');
   });
 
   $('#changepw').on('submit', function (event) {

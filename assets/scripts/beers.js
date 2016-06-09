@@ -29,9 +29,10 @@ const searchBeers = (beers) =>{
       event.preventDefault();
       // console.log($(this).attr('value'));
       let data = $(this).attr('value').toString();
-      console.log(data);
+      let tmp = "'" + data + "'";
+      console.log(tmp);
       // debugger;
-      tasted.addTasted(ui.success, ui.failure, data);
+      tasted.addTasted(ui.success, ui.failure, tmp);
     });
 };
 
