@@ -8,9 +8,9 @@
 body {
   // background: $ipa; /* Old browsers */
   min-height: 1500px;
-  background: -moz-linear-gradient(top, #efc51a 0%, #7a5737 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #efc51a 0%,#7a5737 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #efc51a 0%,#7a5737 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  // background: -moz-linear-gradient(top, #efc51a 0%, #7a5737 100%); /* FF3.6-15 */
+  // background: -webkit-linear-gradient(top, #efc51a 0%,#7a5737 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #efc51a 0%,#7a5737 100%); //* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
@@ -29,17 +29,17 @@ body {
   width: 100%;
   max-height: 300px;
 
-    .title {
-      width:100%;
-      text-align: center;
-      font-size: 100px;
-      color: $white;
-      font-family: 'Londrina Sketch', cursive;
+  .title {
+    width:100%;
+    text-align: center;
+    font-size: 100px;
+    color: $white;
+    font-family: 'Londrina Sketch', cursive;
 
-      h1 {
-        font-size: 75px;
-      }
+    h1 {
+      font-size: 75px;
     }
+  }
 }
 
 .navbar {
@@ -78,16 +78,16 @@ body {
   font-size: 36px;
   color: $ipa;
 
-    li {
-      margin-top: 1em;
-      height: 200px;
-      list-style: none;
+  li {
+    margin-top: 1em;
+    height: 200px;
+    list-style: none;
 
-      img {
-        height: 100%;
-        max-width: auto;
-      }
+    img {
+      height: 100%;
+      max-width: auto;
     }
+  }
     div {
       display: inline;
     }
