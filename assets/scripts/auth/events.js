@@ -3,6 +3,7 @@ const getFormFields = require('../../../lib/get-form-fields');
 const authApi = require('./ajax');
 const authUi = require('./ui');
 const tasted = require('../tasted');
+const beers = require('../beers');
 
 const addHandlers = () => {
   // Authentication ations
@@ -46,6 +47,13 @@ const addHandlers = () => {
     $('#labels').html('');
   });
 };
+
+$('#createBeer').on('click', function(event) {
+  event.preventDefault();
+  beers.createBeer(authUi.success, authUi.failure);
+});
+
+
 
 module.exports = {
   addHandlers,
