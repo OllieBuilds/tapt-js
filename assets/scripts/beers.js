@@ -2,14 +2,14 @@
 
 const app = require('./app-data');
 const ui = require('./auth/ui');
-const tasted = require('./tasted');
+// const tasted = require('./tasted');
 
 
 const searchBeers = (beers) =>{
   let results = [];
   let urls =[];
 
-  for(let i = 0; i < beers.length-100; i++) {
+  for(let i = 0; i < beers.length; i++) {
     if(beers[i].name.toString().indexOf($('input:text').val()) >= 0)
       {
       let url = beers[i]['labels/medium'].toString();
@@ -25,13 +25,14 @@ const searchBeers = (beers) =>{
     let labelsTemplate = require('./templates/labels.handlebars');
     $('#beers').append(beersTemplate({beers:results}));
     $('#labels').append(labelsTemplate({labels:urls}));
-    $('.add').on('click', function(event) {
-      event.preventDefault();
-      // console.log($(this).attr('value'));
-      let data = $(this).attr('value').toString();
-      console.log(data);
-      tasted.addTasted(ui.success, ui.failure, data);
-    });
+    
+    // $('.add').on('click', function(event) {
+    //   event.preventDefault();
+    //   // console.log($(this).attr('value'));
+    //   let data = $(this).attr('value').toString();
+    //   console.log(data);
+    //   tasted.addTasted(ui.success, ui.failure, {'name':data});
+    // });
 };
 
 const load = () => {

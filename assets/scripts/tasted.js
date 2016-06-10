@@ -2,7 +2,7 @@
 
 const app = require('./app-data');
 const authUi = require('./auth/ui');
-
+// const getFormFields = require('../../lib/get-form-fields');
 
 const removeTasted = (success, failure, data) => {
   console.log(data);
@@ -19,6 +19,23 @@ const removeTasted = (success, failure, data) => {
   .fail(failure);
 };
 
+const addRating = (success, failure, id, rate, data) => {
+  console.log(rate);
+  $.ajax({
+    method: 'PATCH',
+    url: app.api + "tasted/" + id,
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+    dataProcessing: false,
+    data:{
+      'rating': rate,
+      'name': data,
+    },
+  }).done(success)
+  .fail(failure);
+};
+
 const sort = (arr) => {
   let beer = [];
   let tmp;
@@ -26,7 +43,6 @@ const sort = (arr) => {
     tmp = arr.beers[i].name;
     if(app.user.beer.indexOf(tmp) < 0)
     {
-      console.log('uno');
       beer.push(arr.beers[i]);
     }
   }
@@ -38,6 +54,14 @@ const sort = (arr) => {
     let data = $('.rmBeer').attr('value').toString();
     console.log(data);
     removeTasted(authUi.success, authUi.failure, data);
+
+  });
+  $('.rate').on('submit', function(event) {
+    event.preventDefault();
+    let rating = $('.tmp').val();
+    let name = $('.rate').attr('id').toString();
+    let iden = $('.tmp').attr('id').toString();
+    addRating(authUi.success, authUi.failure, iden, rating, name);
   });
 };
 

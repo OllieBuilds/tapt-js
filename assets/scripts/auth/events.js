@@ -27,6 +27,9 @@ const addHandlers = () => {
     authApi.signOut(authUi.success, authUi.failure);
     $('.auth').addClass('hide').removeClass('show');
     $('.unauth').removeClass('hide').addClass('show');
+    $('#tasted-beers').html('');
+    $('#beers').html('');
+    $('#labels').html('');
   });
 
   $('#changepw').on('submit', function (event) {
@@ -39,6 +42,8 @@ const addHandlers = () => {
   $('#see-tasted').on('click', function (event) {
     event.preventDefault();
     tasted.showTasted(authUi.tastedSuccess, authUi.failure);
+    $('#beers').html('');
+    $('#labels').html('');
   });
 };
 

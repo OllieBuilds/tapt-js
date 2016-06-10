@@ -1,6 +1,14 @@
 {{#each beer}}
 <li>
   <h2>{{this.name}}</h2>
+  <p>{{this.rating}}</p>
+  <form class="form rate" role="rate" id="{{this.name}}">
+    <div class="form-group">
+      <label>Rate This Beer:</label>
+      <input type="text" id="{{this.id}}" class="form-control tmp" placeholder="Rate Beers">
+    </div>
+    <button type="submit" class="btn btn-default rate">Rate</button>
+  </form>
   <button type="button" class="btn btn-primary rmBeer" value='{{this.name}}'>Remove</button>
 </li>
   {{/each}}
