@@ -1,6 +1,6 @@
 tmp
 dist
-
+app.js
 specs.js
 
 _SpecRunner.html
@@ -9,6 +9,7 @@ _SpecRunner.html
 *.svg
 *.ttf
 *.eot
+
 
 # Created by https://www.gitignore.io
 
